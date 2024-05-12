@@ -4,132 +4,263 @@
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
 }
+html{
+    scroll-behavior: smooth;
+}
 body{
-    background-color: black;
+    background: #080808;
+    color: #fff;
 }
-.titleCard{
-    padding: 10px;
-    width: 3%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-.title{
-    text-align: center;
-    color: #ffffffe3;
-    font-family: sans-serif;
-    font-size: 32px;
-    font-weight: bold;
-    margin: 0;
-}
-.title span{
-    color: #2e8cea;
+#header{
+    background-color: #000;
+    width: 100%;
+    height: 100vh;
+    background: url(image/pic.png);
+    background-size: cover;
+    background-position: center;
 }
 
-.desc{
-    text-align: center;    
-    color: #0a9142;
-    letter-spacing: 3px;
-    line-height: 5px;
+.logo{
+    font-size: 25px;
+    color: #ffffff;
+    font-weight: 600;
+    transition: 0.3s ease;
 }
-.card{
-   width: 90%;
-   max-width: 440px;
-   background: linear-gradient(135deg, #1f4e69 0, #164058 100%);
-   color: #fff;
-   margin: 100px auto 0;
-   border-radius: 20px;
-   padding: 40px 30px;
-   text-align: center;
+.logo:hover{
+    color: rgb(187, 52, 2);
+    text-shadow: 0 0 25px coral,
+                 0 0 50px coral;
+    transform: scale(1.1);
 }
-.search{
-    width: 100%;
-    height: min-content;
+span{
+    color: chocolate;
+}
+.container{
+    padding: 10px 10%;
+}   
+
+nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
-.search input{
-    border: 0;
-    outline: 0;
+nav ul li{
+    display: inline-block;
+    list-style: none;
+    margin: 10px 20px;
+}
+nav ul li a{
+    color: white;
+    text-decoration: none;
     font-size: 18px;
-    color: black;
-    background-color: aliceblue;
-    padding: 10px 25px;
-    border-radius: 30px;
-    margin-right: 16px;
-    height: 60px;
-    flex: 1;
+    position: relative;
 }
-.search input::placeholder{
-    color: #000;
+nav ul li a::after{
+    content: '';
+    width: 0;
+    height: 3px;
+    background: indianred;
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    transition: .5s;
 }
-.search button{
-    border: 0;
-    outline: 0;
-    background: #ebfffc;
-    width:60px;
-    height: 60px;
-    background-color: aliceblue;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 20px;
+nav ul li a:hover::after{
+    width: 100%;
 }
-.search button img{
-    width: 16px;
+.header-text{
+    margin-top: 20%;
+    font-size: 30px;
 }
-.search button:hover{
-    color: #f5f1f1;
-    background-color: #ababab;
+.header-text h1{
+    font-size: 40px;
+    margin-top: 20px;
 }
-.weather-icon{
-    width: 170px;
-    margin-top: 30px;
+.header-text h1 span{
+    color: indianred;
 }
-.weather-icon:hover{
-    color: #025b8f;
-    background-color: rgb(244, 127, 176);
-    transition: 2s;
+
+/*------------about-------------*/
+#about{
+    padding: 80px 0;
+    color: #ababab;
 }
-.weather h1{
-    font-size: 60px;
-    font-weight: 500; 
-}
-.weather h2{
-    font-size: 45px;
-    font-weight: 400;
-    margin-top: -10px; 
-}
-.details{
+.row{
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding: 0 20px;
-    margin-top: 50px;
+    flex-wrap: wrap;
 }
-.col{
+.about-col-1{
+    flex-basis: 35%;
+}
+.about-col-1 img{
+    width: 100%;
+    border-radius: 15px;
+}
+.about-col-2{
+    flex-basis: 60%;
+}
+
+.sub-title{
+    font-size: 60px;
+    font-weight: 600;
+    color: #fff;
+}
+.tab-titles{
     display: flex;
-    align-items: center;
-    text-align: left;
+    margin: 20px 0 40px;
 }
-.col img{
-    width: 40px;
-    margin-right: 10px;
+.tab-links{
+    margin-right: 50px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
 }
-.humidity, .wind{
-    font-size: 22px;
-    margin-top: -5px;
+.tab-links::after{
+    content:'';
+    width: 0;
+    height: 3px;
+    background: indianred;
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    transition: 0.5s;
 }
-.humidity, .wind:hover{
-    transition: 1s;
+.tab-links.active-link::after{
+    width: 50%;
 }
-.weather{
-    display: contents;
+.tab-contents ul li{
+    list-style: none;
+    margin: 10px 0;
 }
-.error{
-    text-align: left;
-    margin-left: 10px;
+.tab-contents ul li span{
+    color: #c34267;
     font-size: 14px;
-    margin-top: 10px;
+}
+.tab-contents{
     display: none;
+}
+.tab-contents.active-tab{
+    display: block;
+}
+.social-icons{
+    font-size: 5px;
+}
+
+/*----------------contact-----------*/
+.contact-left{
+    flex-basis: 35%;
+}
+.contact-right{
+    flex-basis: 60%;
+}
+.contact-left p{
+   margin-top: 30px; 
+}
+.btn.btn2{
+    display: inline-block;
+    background: #ff004f;
+    text-decoration: none;
+    color: #fff;
+    padding: 20px;
+}
+.contact-right form{
+    width: 100%;
+}
+form input, form textarea{
+    width: 100%;
+    border: 0;
+    outline: none;
+    background: #262626;
+    padding: 15px;
+    margin: 15px 0;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 6px;
+}
+form .btn2{
+    padding: 14px 60px;
+    font-size: 18px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+.copyright{
+   width: 100%; 
+   text-align: center;
+   padding: 25px 0;
+   background: #262626;
+   font-weight: 300;
+   margin-top: 30px;
+   margin-bottom: 0;
+}
+nav .fa{
+    display: none;
+}
+
+/*---------------css for small screens-----------*/
+@media only screen and(max-width: 600px){
+    #header{
+        background-image: url();
+    }
+    .header-text{
+        margin-top: 100%;
+        font-size: 16px;
+    }
+    .header-text h1{
+        font-size: 30px;
+    }
+    nav .fa{
+        display: block;
+        font-size: 25px;
+    }
+    nav ul{
+        background: #c34267;
+        position: fixed;
+        top: 0;
+        right: -200px;
+        width: 200px;
+        height: 100vh;
+        padding-top: 50px;
+        z-index: 2;
+        transition: right 0.5s;
+    }
+    nav ul li{
+        display: block;
+        margin: 25px;
+    }
+    nav ul .fa{
+        position: absolute;
+        top: 25px;
+        left: 25px;
+        cursor: pointer;
+    }
+    .sub-title{
+        font-size: 40px;
+    }
+    .about-col-1, .about-col-2{
+        flex-basis: 100%;
+    }
+    .about-col-1{
+        margin-bottom: 30px;
+    }
+    .about-col-2{
+        font-size: 14px;
+    }
+    .tab-links{
+        font-size: 16px;
+        margin-right: 20px;
+    }
+    .contact-left, .contact-right{
+        flex-basis: 100%;
+    }
+    .copyright{
+        font-size: 14px;
+    }
+}
+#msg{
+    color: rgb(14, 181, 186);
+    margin-top: 10px;
+    display: block;
 }

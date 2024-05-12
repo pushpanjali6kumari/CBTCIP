@@ -1,49 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weather App</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
 </head>
 <body>
-<!-- title -->
- <div class="titlCard">
-    <p class="title"><span>Weather</span>APP</p>
-    <p class="desc">Get the weather details of any city, Right Now!</p>
-    <div class="card">
-    <div class="search">
-      <input type="text" placeholder="Enter Location"
-      spellcheck="false">
-      <button><img src="images/search.png"></button>
-    </div>
-    <div class="error">
-      <p>Invalid city name</p>
-    </div>
-    <div class="weather">
-      <img src="images/rain.png" class="weather-icon">
-      <h1 class="temp">20°c</h1>
-      <h2 class="city">London</h2>
-      <div class="details">
-        <div class="col">
-          <img src="images/humidity.png">
-          <div>
-            <p class="humidity">50%</p>
-            <p>Humidity</p>
-          </div>
+    <div id="header">
+        <div class="container">
+            <nav>
+                <a href="#" class="logo"><span>Port</span>folio</a>
+                <ul id="sidemenu">
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skill">Skill</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <i class="fa fa-times" onclick="closemenu()"></i>
+                </ul>
+                <i class="fa fa-bars" onclick="openmenu()"></i>
+            </nav>
+
+            <div class="header-text">
+                <p>Fronted Developer</p>
+                <h1>Hi, I'm <span>Pushpanjali</span><br>Kumari</h1>
+            </div>
         </div>
-        <div class="col"> 
-          <img src="images/wind.png">
-          <div>
-            <p class="wind">30 Km/H</p>
-            <p>Wind Speed</p>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
-  </div>
-</div>
-  <script src="script.js"></script>
+
+    <!------------about------------->
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="image/user.jpg">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">About Me</h1>
+                    <p>Hi, I'm Pushpanjali, a web Developer. My Expertise is to create and website design, Fronted design. </p>
+
+                        <div class="tab-titles">
+                            <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                            <p class="tab-links" onclick="opentab('education')">Education</p>
+                        </div>
+                        <div class="tab-contents active-tab"id="skills">
+                            <ul>
+                                <li><span>Fronted</span><br>Web Development</li>
+                            </ul>
+                        </div>
+                        <div class="tab-contents" id="education">
+                            <ul>
+                                <li><span>2022-2025</span><br>BCA Pursuing from George College, Sealdah</li>
+                            </ul>
+                        </div>
+                </div>
+            </div>
+        </div>
+    <!-----------contact----------->
+    <div id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                    <h1 class="sub-title">Contact Me</h1>
+                    <p>➤contact@pushhpanjalikumari055.com</p>
+                    <p>📞8240982985</p>
+                    <br>
+                    <a href="image/Resume.pdf" Download class="btn btn2">Download Resume</a>
+                </div>
+                <div class="contact-right">
+                    <form name="submit-to-google-sheet">
+                       <input type="text" name="Name" placeholder="Your Name" required> 
+                       <input type="email" name="email" placeholder="Your Email" required> 
+                       <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                       <button type="submit" class="btn btn2">Submit</button>
+                    </form>
+                    <span id="msg"></span>
+                </div>
+            </div>
+        </div>
+        <br><br>
+        <div class="copyright">
+            <p>Copyright © Pushpanjali</p>
+        </div>
+    
+
+
+
+<script src="script.js"></script>
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwG9FdQNUQqcD60pfe7sXyEpWB_vh5YUIzYAjxSMILRSBW9CfHba6wW56xMfy5taFf9YA/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML = "Message sent successfully"
+            setTimeout(function(){
+                msg.innerHTML = ""
+            },5000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+  
+    
 </body>
 </html>
